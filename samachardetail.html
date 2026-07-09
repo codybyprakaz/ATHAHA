@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>संसद बैठक आज बस्दै | ATHAHA HD</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: "class" };</script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: "Noto Sans Devanagari", sans-serif; }
+    .ticker { animation: ticker 28s linear infinite; }
+    @keyframes ticker { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
+    .image-zoom img { transition: transform 0.4s ease; }
+    .image-zoom:hover img { transform: scale(1.05); }
+    .hide-header { height: 0 !important; opacity: 0; overflow: hidden; padding-top: 0 !important; padding-bottom: 0 !important; }
+    .article-content p { margin-top: 1.35rem; line-height: 2.05; font-size: 1.08rem; }
+    .article-content h2 { margin-top: 2rem; font-size: 1.7rem; line-height: 1.3; font-weight: 900; color: #1e40af; }
+    .dark .article-content h2 { color: #38bdf8; }
+  </style>
+</head>
+
+<body class="bg-slate-100 text-slate-900 dark:bg-slate-950 dark:text-white transition-colors">
+<header class="bg-white dark:bg-slate-900 shadow">
+  <div id="topHeader" class="max-w-7xl mx-auto px-4 h-24 flex items-center justify-between transition-all duration-300">
+    <div class="flex items-center gap-3 w-1/3">
+      <button id="menuBtn" class="hover:text-blue-700 transition" aria-label="Menu">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <span id="dateTime" class="text-sm font-medium hidden sm:inline"></span>
+    </div>
+    <div class="w-1/3 text-center">
+      <h1 class="text-4xl md:text-5xl font-black tracking-wide text-blue-800 dark:text-sky-400">ATHAHA HD</h1>
+      <p class="text-xs md:text-sm text-slate-500 dark:text-slate-300">नेपालको डिजिटल समाचार पोर्टल</p>
+    </div>
+    <div class="flex justify-end items-center gap-4 w-1/3">
+      <button id="themeBtn" class="hover:text-blue-700 transition" aria-label="Theme"><i class="fa-regular fa-moon"></i></button>
+    </div>
+  </div>
+</header>
+
+<nav id="mainNav" class="sticky top-0 z-40 bg-blue-800 text-white shadow-lg">
+  <div class="max-w-7xl mx-auto px-4">
+    <ul class="flex justify-center items-center gap-8 py-4 font-semibold flex-wrap">
+      <li><a href="#" class="hover:text-sky-300 transition" title="गृहपृष्ठ"><i class="fa-regular fa-house"></i></a></li>
+      <li><a href="#" class="text-sky-300 border-b-2 border-sky-300 pb-1">समाचार</a></li>
+      <li><a href="#" class="hover:text-sky-300 transition">प्रदेश</a></li>
+      <li><a href="#" class="hover:text-sky-300 transition">अर्थतन्त्र</a></li>
+      <li><a href="#" class="hover:text-sky-300 transition">स्वास्थ्य</a></li>
+      <li><a href="#" class="hover:text-sky-300 transition">खेलकुद</a></li>
+      <li><a href="#" class="hover:text-sky-300 transition">मनोरञ्जन</a></li>
+      <li><a href="#" class="hover:text-sky-300 transition">विश्व</a></li>
+      <li><a href="#" class="hover:text-sky-300 transition">भिडियो</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div id="overlay" class="hidden fixed inset-0 bg-black/50 z-50"></div>
+<aside id="sideMenu" class="fixed top-0 left-0 w-72 h-full bg-white dark:bg-slate-900 z-50 shadow-xl -translate-x-full transition-transform duration-300">
+  <div class="p-4 flex justify-between border-b dark:border-slate-700"><h2 class="text-2xl font-bold text-blue-800 dark:text-sky-400">ATHAHA HD</h2><button id="closeMenu" class="text-3xl">×</button></div>
+  <ul class="p-5 space-y-4 font-semibold">
+    <li><a href="./index.html" class="hover:text-blue-700 dark:hover:text-sky-400">गृहपृष्ठ <i class="fa-regular fa-house ml-1"></i></a></li>
+    <li><a href="./samachar.html" class="text-blue-800 dark:text-sky-400">समाचार</a></li>
+    <li><a href="#" class="hover:text-blue-700 dark:hover:text-sky-400">प्रदेश</a></li>
+    <li><a href="#" class="hover:text-blue-700 dark:hover:text-sky-400">अर्थतन्त्र</a></li>
+    <li><a href="#" class="hover:text-blue-700 dark:hover:text-sky-400">स्वास्थ्य</a></li>
+    <li><a href="#" class="hover:text-blue-700 dark:hover:text-sky-400">खेलकुद</a></li>
+    <li><a href="#" class="hover:text-blue-700 dark:hover:text-sky-400">मनोरञ्जन</a></li>
+    <li><a href="#" class="hover:text-blue-700 dark:hover:text-sky-400">विश्व</a></li>
+    <li><a href="#" class="hover:text-blue-700 dark:hover:text-sky-400">सम्पर्क</a></li>
+  </ul>
+</aside>
+
+<section class="bg-sky-100 dark:bg-slate-800 border-y border-sky-300 dark:border-slate-700 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex gap-3 items-center">
+    <span class="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded animate-pulse">LIVE</span>
+    <strong class="text-blue-800 dark:text-sky-400 whitespace-nowrap">ताजा खबर :</strong>
+    <div class="overflow-hidden w-full"><div class="ticker whitespace-nowrap">सरकारको नयाँ निर्णय सार्वजनिक | शेयर बजारमा सुधार | आज देशभर वर्षाको सम्भावना | नेपाल क्रिकेट टोलीको शानदार जित</div></div>
+  </div>
+</section>
+
+<main class="bg-slate-100 dark:bg-slate-950 transition-colors">
+  <section class="max-w-7xl mx-auto px-4 py-6">
+    <div class="h-24 md:h-32 rounded-2xl bg-blue-800 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow flex items-center justify-center">
+      <span class="text-white font-bold text-lg">Advertisement Banner</span>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-4 pb-10">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <article class="lg:col-span-2 bg-white dark:bg-slate-900 rounded-2xl shadow overflow-hidden border border-slate-200 dark:border-slate-800">
+        <div class="p-5 md:p-8 border-b border-slate-200 dark:border-slate-800">
+          <div class="text-sm text-slate-500 dark:text-slate-400 font-semibold mb-4">
+            <a href="#" class="hover:text-blue-700 dark:hover:text-sky-400">गृहपृष्ठ</a><span class="mx-2">/</span>
+            <a href="#" class="hover:text-blue-700 dark:hover:text-sky-400">समाचार</a><span class="mx-2">/</span><span>विस्तृत समाचार</span>
+          </div>
+          <span class="inline-block bg-red-600 text-white px-4 py-1 rounded-full text-sm font-bold">मुख्य समाचार</span>
+          <h1 class="text-3xl md:text-5xl font-black leading-tight mt-4 text-blue-800 dark:text-sky-400">संसद बैठक आज बस्दै, महत्वपूर्ण विधेयकमा छलफल हुने</h1>
+          <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">आज बस्ने बैठकमा समसामयिक विषय, नीति तथा विधेयकमाथि छलफल हुने बताइएको छ।</p>
+          <div class="flex flex-wrap items-center gap-4 mt-5 text-sm text-slate-500 dark:text-slate-400">
+            <span><i class="fa-regular fa-user mr-1"></i> अथाहा संवाददाता</span>
+            <span><i class="fa-regular fa-clock mr-1"></i> २ घण्टा अघि</span>
+            <span><i class="fa-regular fa-eye mr-1"></i> २.५K</span>
+            <span><i class="fa-regular fa-comment mr-1"></i> १८ प्रतिक्रिया</span>
+          </div>
+        </div>
+
+        <div class="overflow-hidden image-zoom">
+          <img src="https://picsum.photos/1200/720?samachar-detail" alt="संसद बैठक" class="w-full h-[280px] md:h-[460px] object-cover">
+        </div>
+
+        <div class="p-5 md:p-8">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-slate-100 dark:bg-slate-950 rounded-2xl p-4 mb-7">
+            <div class="font-bold text-slate-600 dark:text-slate-300">यो समाचार सेयर गर्नुहोस्</div>
+            <div class="flex gap-3">
+              <a href="#" class="w-10 h-10 rounded-full bg-blue-800 text-white grid place-items-center hover:bg-blue-900 transition"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="w-10 h-10 rounded-full bg-sky-500 text-white grid place-items-center hover:bg-sky-600 transition"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#" class="w-10 h-10 rounded-full bg-green-600 text-white grid place-items-center hover:bg-green-700 transition"><i class="fab fa-whatsapp"></i></a>
+              <button id="copyBtn" class="w-10 h-10 rounded-full bg-slate-700 text-white grid place-items-center hover:bg-slate-800 transition"><i class="fa-regular fa-copy"></i></button>
+            </div>
+          </div>
+
+          <div class="article-content text-slate-700 dark:text-slate-300">
+            <p>काठमाडौं — प्रतिनिधि सभाको बैठक आज बस्दैछ। बैठकमा सरकारका तर्फबाट प्रस्तुत हुने केही महत्वपूर्ण विधेयक, समसामयिक राजनीतिक विषय तथा जनसरोकारका मुद्दामा छलफल हुने संसद सचिवालयले जनाएको छ।</p>
+            <p>बैठकमा सांसदहरूले सार्वजनिक सेवा प्रवाह, सुशासन, आर्थिक सुधार र नागरिकसँग प्रत्यक्ष जोडिएका विषयमा धारणा राख्ने तयारी गरेका छन्। पछिल्लो समय उठेका राष्ट्रिय मुद्दाबारे पनि बैठकमा प्रश्नोत्तर तथा छलफल हुन सक्ने बताइएको छ।</p>
+            <h2>विधेयक र नीति प्राथमिकतामा</h2>
+            <p>आजको कार्यसूचीमा केही विधेयकलाई छलफलका लागि अघि बढाइने सम्भावना छ। सरकारले विधेयकमार्फत नीतिगत सुधारलाई गति दिने बताइरहेको छ भने विपक्षी दलहरूले कार्यान्वयन पक्ष स्पष्ट हुनुपर्ने माग गर्दै आएका छन्।</p>
+            <p>संसदीय समितिबाट आएका प्रतिवेदन, संशोधन प्रस्ताव र सम्बन्धित मन्त्रालयका जवाफसमेत बैठकमा प्रस्तुत हुन सक्ने संसद स्रोतले जनाएको छ।</p>
+            <h2>जनसरोकारका विषयमा ध्यानाकर्षण</h2>
+            <p>बैठकमा मूल्यवृद्धि, रोजगारी, सडक पूर्वाधार, स्वास्थ्य सेवा र विपद् व्यवस्थापन जस्ता विषय उठ्ने सम्भावना छ। सांसदहरूले आफ्ना निर्वाचन क्षेत्रका समस्यालाई पनि सदनमार्फत सरकारको ध्यानाकर्षण गराउने तयारी गरेका छन्।</p>
+            <p>सभामुखले बैठकलाई व्यवस्थित र प्रभावकारी बनाउन सबै दलसँग समन्वय भइरहेको बताइएको छ। बैठकको प्रत्यक्ष प्रसारण संसदको आधिकारिक माध्यमबाट हुने अपेक्षा गरिएको छ।</p>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-wrap gap-3">
+            <span class="font-bold text-slate-500 dark:text-slate-400">Tags:</span>
+            <a href="#" class="bg-slate-100 dark:bg-slate-800 px-4 py-2 rounded-full font-bold hover:bg-blue-800 hover:text-white transition">संसद</a>
+            <a href="#" class="bg-slate-100 dark:bg-slate-800 px-4 py-2 rounded-full font-bold hover:bg-blue-800 hover:text-white transition">राजनीति</a>
+            <a href="#" class="bg-slate-100 dark:bg-slate-800 px-4 py-2 rounded-full font-bold hover:bg-blue-800 hover:text-white transition">विधेयक</a>
+          </div>
+        </div>
+      </article>
+
+      <aside class="space-y-6">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl shadow p-5 border border-slate-200 dark:border-slate-800">
+          <h2 class="text-2xl font-black border-l-4 border-blue-800 dark:border-sky-400 pl-3 mb-5">लोकप्रिय समाचार</h2>
+          <ul id="popularList" class="space-y-4"></ul>
+        </div>
+        <div class="bg-white dark:bg-slate-900 rounded-2xl shadow p-5 border border-slate-200 dark:border-slate-800">
+          <h2 class="text-2xl font-black border-l-4 border-blue-800 dark:border-sky-400 pl-3 mb-5">सम्बन्धित समाचार</h2>
+          <div id="relatedList" class="space-y-4"></div>
+        </div>
+        <div class="bg-gradient-to-br from-blue-800 to-sky-500 rounded-2xl shadow overflow-hidden p-6 text-white text-center sticky top-24">
+          <p class="text-xs uppercase tracking-widest font-bold opacity-80">Advertisement</p>
+          <h3 class="text-2xl font-black mt-3">तपाईंको विज्ञापन यहाँ</h3>
+          <p class="text-sm mt-2 opacity-90">हजारौं पाठकसम्म आफ्नो व्यवसाय पुर्‍याउनुहोस्।</p>
+          <a href="#" class="inline-block mt-4 bg-white text-blue-800 px-5 py-2 rounded-full font-bold hover:bg-slate-100 transition">सम्पर्क गर्नुहोस्</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-4 pb-12">
+    <div class="bg-white dark:bg-slate-900 rounded-2xl shadow p-5 md:p-7 border border-slate-200 dark:border-slate-800">
+      <div class="flex items-center justify-between mb-5">
+        <h2 class="text-2xl md:text-3xl font-black border-l-4 border-blue-800 dark:border-sky-400 pl-3">थप पढ्नुहोस्</h2>
+        <a href="#" class="text-blue-800 dark:text-sky-400 font-bold hover:underline">सबै समाचार</a>
+      </div>
+      <div id="moreNews" class="grid md:grid-cols-3 gap-5"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="mt-16 border-t transition-colors duration-300 bg-slate-100 text-slate-900 border-slate-300 dark:bg-gradient-to-b dark:from-blue-950 dark:via-slate-950 dark:to-black dark:text-white dark:border-blue-900">
+  <div class="max-w-7xl mx-auto px-6 py-12 text-center border-b border-slate-300 dark:border-slate-800">
+    <h2 class="text-5xl font-black tracking-wide text-blue-800 dark:text-sky-400">ATHAHA HD</h2>
+    <p class="mt-3 text-slate-600 dark:text-slate-300 text-lg">स्वतन्त्र • छिटो • भरपर्दो समाचार</p>
+    <div class="flex justify-center gap-4 mt-8">
+      <a href="#" class="w-11 h-11 rounded-full border border-slate-300 dark:border-blue-700 bg-white dark:bg-blue-900/40 flex items-center justify-center transition-all duration-300 hover:bg-[#1877F2] hover:text-white hover:-translate-y-1"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="w-11 h-11 rounded-full border border-slate-300 dark:border-blue-700 bg-white dark:bg-blue-900/40 flex items-center justify-center transition-all duration-300 hover:bg-[#FF0000] hover:text-white hover:-translate-y-1"><i class="fab fa-youtube"></i></a>
+      <a href="#" class="w-11 h-11 rounded-full border border-slate-300 dark:border-blue-700 bg-white dark:bg-blue-900/40 flex items-center justify-center transition-all duration-300 hover:bg-pink-600 hover:text-white hover:-translate-y-1"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="w-11 h-11 rounded-full border border-slate-300 dark:border-blue-700 bg-white dark:bg-blue-900/40 flex items-center justify-center transition-all duration-300 hover:bg-black hover:text-white hover:-translate-y-1"><i class="fa-brands fa-x-twitter"></i></a>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div><h3 class="text-blue-800 dark:text-sky-400 font-bold uppercase tracking-wider mb-5">समाचार</h3><ul class="space-y-3 text-slate-600 dark:text-slate-300"><li><a href="#" class="hover:text-sky-500 transition">राजनीति</a></li><li><a href="#" class="hover:text-sky-500 transition">समाज</a></li><li><a href="#" class="hover:text-sky-500 transition">अर्थ</a></li><li><a href="#" class="hover:text-sky-500 transition">खेलकुद</a></li></ul></div>
+    <div><h3 class="text-blue-800 dark:text-sky-400 font-bold uppercase tracking-wider mb-5">Quick Links</h3><ul class="space-y-3 text-slate-600 dark:text-slate-300"><li><a href="#" class="hover:text-sky-500 transition">हाम्रो बारेमा</a></li><li><a href="#" class="hover:text-sky-500 transition">सम्पर्क</a></li><li><a href="#" class="hover:text-sky-500 transition">विज्ञापन</a></li><li><a href="#" class="hover:text-sky-500 transition">Privacy Policy</a></li></ul></div>
+    <div><h3 class="text-blue-800 dark:text-sky-400 font-bold uppercase tracking-wider mb-5">सम्पर्क</h3><div class="space-y-4 text-slate-600 dark:text-slate-300"><p><i class="fas fa-map-marker-alt text-blue-800 mr-2"></i>Kathmandu, Nepal</p><p><i class="fas fa-envelope text-blue-800 mr-2"></i>info@athahahd.com</p><p><i class="fas fa-phone text-blue-800 mr-2"></i>+977-9800000000</p></div></div>
+    <div><h3 class="text-blue-800 dark:text-sky-400 font-bold uppercase tracking-wider mb-5">Newsletter</h3><p class="text-sm text-slate-600 dark:text-slate-300 mb-4">Subscribe to receive latest updates.</p><form id="newsletterForm" class="relative"><input type="email" id="newsletterEmail" placeholder="Enter your email" required class="w-full h-12 rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 pl-5 pr-14 text-sm focus:outline-none focus:ring-2 focus:ring-blue-700 transition"><button type="submit" class="absolute right-1 top-1 h-10 w-10 rounded-full bg-blue-800 hover:bg-blue-700 text-white transition grid place-items-center"><i class="fa-solid fa-paper-plane"></i></button></form></div>
+  </div>
+  <div class="border-t border-slate-300 dark:border-slate-800"><div class="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-600 dark:text-slate-400"><p>© <span id="year"></span> ATHAHA HD. All Rights Reserved.</p><p>Designed & Developed by <span class="text-blue-800 font-semibold">SANGALO TECH</span></p></div></div>
+</footer>
+
+<script>
+const relatedData = [
+  { title: "सरकारको नयाँ निर्णय सार्वजनिक, कार्यान्वयन प्रक्रिया सुरु", image: "https://picsum.photos/700/420?news2", time: "१ घण्टा अघि" },
+  { title: "संसदमा विपक्षी दलद्वारा विशेष ध्यानाकर्षण", image: "https://picsum.photos/700/420?news7", time: "६ घण्टा अघि" },
+  { title: "सार्वजनिक सेवा सुधारका लागि नयाँ डिजिटल प्रणाली", image: "https://picsum.photos/700/420?news6", time: "५ घण्टा अघि" }
+];
+const popularData = ["काठमाडौंमा भारी वर्षाको सम्भावना", "बैंकको ब्याजदर घट्यो", "संसदमा आज विशेष छलफल", "सुनको मूल्यमा नयाँ रेकर्ड", "विश्व बजारमा तेलको मूल्य घट्यो"];
+function toNepaliNumber(num){const digits=['०','१','२','३','४','५','६','७','८','९'];return num.toString().replace(/\d/g,d=>digits[d]);}
+function miniCard(item){return `<article class="flex gap-4 border-b border-slate-200 dark:border-slate-700 pb-4 image-zoom cursor-pointer"><div class="w-24 h-20 rounded-xl overflow-hidden shrink-0"><img src="${item.image}" class="w-full h-full object-cover" loading="lazy"></div><div><h3 class="font-black leading-snug hover:text-blue-700 dark:hover:text-sky-400">${item.title}</h3><p class="text-xs text-slate-500 dark:text-slate-400 mt-1">${item.time}</p></div></article>`;}
+function moreCard(item){return `<article class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 image-zoom cursor-pointer bg-slate-50 dark:bg-slate-950"><div class="overflow-hidden"><img src="${item.image}" class="w-full h-44 object-cover" loading="lazy"></div><div class="p-4"><p class="text-xs text-slate-500 dark:text-slate-400">${item.time}</p><h3 class="text-lg font-black mt-2 hover:text-blue-700 dark:hover:text-sky-400">${item.title}</h3></div></article>`;}
+document.getElementById("popularList").innerHTML = popularData.map((item,index)=>`<li class="flex gap-3 border-b border-slate-200 dark:border-slate-700 pb-3 cursor-pointer hover:text-blue-700 dark:hover:text-sky-400"><span class="text-2xl font-black text-blue-800 dark:text-sky-400">${toNepaliNumber(index+1)}</span><span class="font-bold leading-snug">${item}</span></li>`).join("");
+document.getElementById("relatedList").innerHTML = relatedData.map(miniCard).join("");
+document.getElementById("moreNews").innerHTML = relatedData.map(moreCard).join("");
+
+const html = document.documentElement;
+const themeBtn = document.getElementById("themeBtn");
+if (localStorage.getItem("theme") === "dark") html.classList.add("dark");
+function updateThemeIcon(){themeBtn.innerHTML = html.classList.contains("dark") ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';}
+themeBtn.addEventListener("click",()=>{html.classList.toggle("dark");localStorage.setItem("theme",html.classList.contains("dark")?"dark":"light");updateThemeIcon();});
+updateThemeIcon();
+const menuBtn=document.getElementById("menuBtn"), sideMenu=document.getElementById("sideMenu"), overlay=document.getElementById("overlay"), closeMenu=document.getElementById("closeMenu");
+function closeSideMenu(){sideMenu.classList.add("-translate-x-full");overlay.classList.add("hidden");}
+menuBtn.addEventListener("click",()=>{sideMenu.classList.remove("-translate-x-full");overlay.classList.remove("hidden");});
+closeMenu.addEventListener("click",closeSideMenu); overlay.addEventListener("click",closeSideMenu); document.addEventListener("keydown",e=>{if(e.key==="Escape") closeSideMenu();});
+function updateDateTime(){const options={weekday:"long",year:"numeric",month:"long",day:"numeric",hour:"2-digit",minute:"2-digit"};document.getElementById("dateTime").textContent=new Date().toLocaleString("ne-NP",options);} updateDateTime(); setInterval(updateDateTime,60000);
+document.getElementById("year").textContent = new Date().getFullYear();
+const topHeader=document.getElementById("topHeader"); window.addEventListener("scroll",()=>{if(window.scrollY>80) topHeader.classList.add("hide-header"); else topHeader.classList.remove("hide-header");});
+const newsletterForm=document.getElementById("newsletterForm"); newsletterForm.addEventListener("submit",e=>{e.preventDefault();const button=newsletterForm.querySelector("button"), emailInput=document.getElementById("newsletterEmail");button.innerHTML='<i class="fa-solid fa-check"></i>';button.classList.remove("bg-blue-800");button.classList.add("bg-green-600");setTimeout(()=>{button.innerHTML='<i class="fa-solid fa-paper-plane"></i>';button.classList.remove("bg-green-600");button.classList.add("bg-blue-800");emailInput.value="";},1800);});
+document.getElementById("copyBtn").addEventListener("click", async()=>{try{await navigator.clipboard.writeText(window.location.href);document.getElementById("copyBtn").innerHTML='<i class="fa-solid fa-check"></i>';setTimeout(()=>document.getElementById("copyBtn").innerHTML='<i class="fa-regular fa-copy"></i>',1400);}catch(e){alert("Link copied");}});
+</script>
+</body>
+</html>

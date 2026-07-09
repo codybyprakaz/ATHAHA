@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ATHAHA HD</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config = {
+    darkMode: "class"
+  };
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: "Noto Sans Devanagari", sans-serif;
+    }
+
+    .ticker {
+      animation: ticker 28s linear infinite;
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(100%); }
+      to { transform: translateX(-100%); }
+    }
+
+    .image-zoom img {
+      transition: transform 0.4s ease;
+    }
+
+    .image-zoom:hover img {
+      transform: scale(1.05);
+    }
+    .hide-header {
+  height: 0 !important;
+  opacity: 0;
+  overflow: hidden;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+  </style>
+</head>
+
+<body class="bg-slate-100 text-slate-900 dark:bg-slate-950 dark:text-white transition-colors">
+
+<header class="bg-white dark:bg-slate-900 shadow">
+
+  <div id="topHeader" class="max-w-7xl mx-auto px-4 h-24 flex items-center justify-between transition-all duration-300">
+    <div class="flex items-center gap-3 w-1/3">
+      <button id="menuBtn" class="hover:text-blue-700 transition" aria-label="Menu">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+
+      <span id="dateTime" class="text-sm font-medium"></span>
+    </div>
+
+    <div class="w-1/3 text-center">
+      <h1 class="text-5xl font-black tracking-wide text-blue-800 dark:text-sky-400">
+        ATHAHA HD
+      </h1>
+
+      <p class="text-sm text-slate-500 dark:text-slate-300">
+        नेपालको डिजिटल समाचार पोर्टल
+      </p>
+    </div>
+
+    <div class="flex justify-end items-center gap-4 w-1/3">
+      <button id="themeBtn" class="hover:text-blue-700 transition" aria-label="Theme">
+       <i class="fa-regular fa-moon"></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav id="mainNav" class="sticky top-0 z-50 bg-blue-800 text-white shadow-lg">
+    <div class="max-w-7xl mx-auto px-4">
+      <ul class="flex justify-center items-center gap-8 py-4 font-semibold flex-wrap">
+
+        <li>
+  <a href="./index.html" class="hover:text-sky-300 transition" title="गृहपृष्ठ">
+    <i class="fa-solid fa-house"></i>
+  </a>
+</li>
+
+        <li><a href="./samachar.html" class="hover:text-sky-300 transition">समाचार</a></li>
+        <li><a href="#" class="hover:text-sky-300 transition">प्रदेश</a></li>
+        <li><a href="#" class="hover:text-sky-300 transition">अर्थतन्त्र</a></li>
+        <li><a href="#" class="hover:text-sky-300 transition">स्वास्थ्य</a></li>
+        <li><a href="#" class="hover:text-sky-300 transition">खेलकुद</a></li>
+        <li><a href="#" class="hover:text-sky-300 transition">मनोरञ्जन</a></li>
+        <li><a href="#" class="hover:text-sky-300 transition">विश्व</a></li>
+        <li><a href="#" class="hover:text-sky-300 transition">भिडियो</a></li>
+
+      </ul>
+    </div>
+  </nav>
+
+<div id="overlay" class="hidden fixed inset-0 bg-black/50 z-50"></div>
+
+<aside id="sideMenu" class="fixed top-0 left-0 w-72 h-full bg-white dark:bg-slate-900 z-50 shadow-xl -translate-x-full transition-transform duration-300">
+  <div class="p-4 flex justify-between border-b dark:border-slate-700">
+    <h2 class="text-2xl font-bold text-blue-800 dark:text-sky-400">ATHAHA HD</h2>
+    <button id="closeMenu" class="text-3xl">×</button>
+  </div>
+
+  <ul class="p-5 space-y-4 font-semibold">
+    <li><a href="#"><span>गृहपृष्ठ</span> <i class="fa-regular fa-house"></i></a></li>
+    <li><a href="#">समाचार</a></li>
+    <li><a href="#">प्रदेश</a></li>
+    <li><a href="#">अर्थतन्त्र</a></li>
+    <li><a href="#">स्वास्थ्य</a></li>
+    <li><a href="#">खेलकुद</a></li>
+    <li><a href="#">मनोरञ्जन</a></li>
+    <li><a href="#">विश्व</a></li>
+    <li><a href="#">सम्पर्क</a></li>
+  </ul>
+</aside>
+
+<section class="bg-sky-100 dark:bg-slate-800 border-y border-sky-300 dark:border-slate-700 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex gap-3 items-center">
+    <span class="bg-red-600 text-white text-xs font-bold px-2 py-1 rounded animate-pulse">LIVE</span>
+    <strong class="text-blue-800 dark:text-sky-400 whitespace-nowrap">ताजा खबर :</strong>
+    <div class="overflow-hidden w-full">
+      <div class="ticker whitespace-nowrap">
+        सरकारको नयाँ निर्णय सार्वजनिक | शेयर बजारमा सुधार | आज देशभर वर्षाको सम्भावना | नेपाल क्रिकेट टोलीको शानदार जित
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- =============================
+PHASE 1 HOMEPAGE CONTENT
+No Header / No Footer
+Dark Mode Supported
+============================= -->
+
+<main class="bg-slate-100 dark:bg-slate-950 transition-colors">
+
+  <!-- Top Advertisement -->
+  <section class="max-w-7xl mx-auto px-4 py-6">
+    <div class="h-28 md:h-36 rounded-2xl bg-blue-800 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow flex items-center justify-center">
+      <span class="text-white font-bold text-lg">Advertisement Banner</span>
+    </div>
+  </section>
+
+  <!-- Hero Section -->
+  <section class="max-w-7xl mx-auto px-4 pb-10">
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+    <!-- Main Featured -->
+    <article class="lg:col-span-2 bg-white dark:bg-slate-900 rounded-2xl shadow overflow-hidden">
+
+      <!-- YouTube Video -->
+      <div class="w-full h-80 md:h-[430px] overflow-hidden">
+      <iframe width="989" height="556" src="https://www.youtube.com/embed/jwxwIr1zRbI??autoplay=1&mute=1&loop=1&playlist=dQw4w9WgXcQ&controls=1&rel=0" title="Today news 🔴 nepali news | aaja ka mukhya samachar, nepali samachar live | Asar 24 gate 2083." frameborder="0"  frameborder="0"
+        allow="autoplay; encrypted-media; picture-in-picture"
+        allowfullscreen></iframe>
+      </div>
+
+      <div class="p-6">
+        <span class="inline-block bg-blue-800 text-white px-4 py-1 rounded-full text-sm font-bold">
+          मुख्य समाचार
+        </span>
+
+        <h1 class="text-3xl md:text-5xl font-black leading-tight mt-4 hover:text-blue-700 dark:hover:text-sky-400 cursor-pointer">
+          देशको अर्थतन्त्र सुधारतर्फ, सरकारको नयाँ योजना सार्वजनिक
+        </h1>
+
+        <p class="text-slate-600 dark:text-slate-300 mt-4 text-lg">
+          सरकारले आर्थिक सुधार, रोजगारी सिर्जना र उत्पादन वृद्धिका लागि नयाँ नीति सार्वजनिक गरेको छ।
+        </p>
+      </div>
+    </article>
+
+    <!-- Side Top Stories -->
+    <aside class="space-y-4">
+      <h2 class="text-2xl font-black border-l-4 border-blue-800 dark:border-sky-400 pl-3">
+        टप स्टोरी
+      </h2>
+
+      <div id="topStories" class="space-y-4"></div>
+
+      <!-- See All Button -->
+      <div class="flex justify-center pt-2">
+        <a href="/top-stories"
+           class="inline-block bg-blue-800 text-white px-6 py-2 rounded-full font-bold hover:bg-blue-900 dark:bg-sky-500 dark:hover:bg-sky-600 transition">
+          सबै
+        </a>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+  <!-- Latest + Popular -->
+  <section class="max-w-7xl mx-auto px-4 pb-10">
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+    <!-- Latest News -->
+    <div class="lg:col-span-2">
+      <div class="flex items-center justify-between mb-5">
+        <h2 class="text-2xl md:text-3xl font-black border-l-4 border-blue-800 dark:border-sky-400 pl-3">
+          ताजा समाचार
+        </h2>
+        <a href="#" class="text-blue-800 dark:text-sky-400 font-bold hover:underline">सबै</a>
+      </div>
+
+      <div id="latestNewsGrid" class="grid md:grid-cols-2 gap-5"></div>
+    </div>
+
+    <!-- Right Sidebar -->
+    <aside class="space-y-5">
+
+      <!-- Popular News -->
+      <div class="bg-white dark:bg-slate-900 rounded-2xl shadow p-5">
+        <h2 class="text-2xl font-black border-l-4 border-blue-800 dark:border-sky-400 pl-3 mb-5">
+          लोकप्रिय
+        </h2>
+
+        <ul id="popularNewsList" class="space-y-4"></ul>
+      </div>
+
+      <!-- Advertisement Banner -->
+      <div class="bg-gradient-to-br from-blue-800 to-sky-500 rounded-2xl shadow overflow-hidden p-5 text-white text-center">
+        <p class="text-xs uppercase tracking-widest font-bold opacity-80">
+          Advertisement
+        </p>
+
+        <h3 class="text-2xl font-black mt-3">
+          तपाईंको विज्ञापन यहाँ
+        </h3>
+
+        <p class="text-sm mt-2 opacity-90">
+          हजारौं पाठकसम्म आफ्नो व्यवसाय पुर्‍याउनुहोस्।
+        </p>
+
+        <a href="#"
+           class="inline-block mt-4 bg-white text-blue-800 px-5 py-2 rounded-full font-bold hover:bg-slate-100 transition">
+          सम्पर्क गर्नुहोस्
+        </a>
+      </div>
+
+    </aside>
+
+  </div>
+</section>
+
+  <!-- Middle Advertisement -->
+  <section class="max-w-7xl mx-auto px-4 pb-10">
+    <div class="h-24 md:h-32 rounded-2xl bg-blue-800 dark:bg-blue-950 shadow flex items-center justify-center">
+      <span class="text-white font-bold text-lg">Advertisement</span>
+    </div>
+  </section>
+
+  <!-- Politics + Province -->
+  <section class="max-w-7xl mx-auto px-4 pb-10">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+      <div>
+        <div class="flex items-center justify-between mb-5">
+          <h2 class="text-2xl font-black border-l-4 border-blue-800 dark:border-sky-400 pl-3">
+            राजनीति
+          </h2>
+          <a href="#" class="text-blue-800 dark:text-sky-400 font-bold">सबै</a>
+        </div>
+        <div id="politicsNews" class="space-y-5"></div>
+      </div>
+
+      <div>
+        <div class="flex items-center justify-between mb-5">
+          <h2 class="text-2xl font-black border-l-4 border-blue-800 dark:border-sky-400 pl-3">
+            प्रदेश
+          </h2>
+          <a href="#" class="text-blue-800 dark:text-sky-400 font-bold">सबै</a>
+        </div>
+        <div id="provinceNews" class="space-y-5"></div>
+      </div>
+
+      <div>
+        <div class="flex items-center justify-between mb-5">
+          <h2 class="text-2xl font-black border-l-4 border-blue-800 dark:border-sky-400 pl-3">
+            विश्व
+          </h2>
+          <a href="#" class="text-blue-800 dark:text-sky-400 font-bold">सबै</a>
+        </div>
+        <div id="worldNews" class="space-y-5"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Economy -->
+  <section class="max-w-7xl mx-auto px-4 pb-10">
+    <div class="flex items-center justify-between mb-5">
+      <h2 class="text-2xl md:text-3xl font-black border-l-4 border-blue-800 dark:border-sky-400 pl-3">
+        अर्थतन्त्र
+      </h2>
+      <a href="#" class="text-blue-800 dark:text-sky-400 font-bold">सबै</a>
+    </div>
+
+    <div id="economyNews" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5"></div>
+  </section>
+
+  <!-- Sports + Entertainment -->
+  <section class="max-w-7xl mx-auto px-4 pb-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+      <div>
+        <div class="flex items-center justify-between mb-5">
+          <h2 class="text-2xl font-black border-l-4 border-blue-800 dark:border-sky-400 pl-3">
+            खेलकुद
+          </h2>
+          <a href="#" class="text-blue-800 dark:text-sky-400 font-bold">सबै</a>
+        </div>
+        <div id="sportsNewsNew" class="grid sm:grid-cols-2 gap-5"></div>
+      </div>
+
+      <div>
+        <div class="flex items-center justify-between mb-5">
+          <h2 class="text-2xl font-black border-l-4 border-blue-800 dark:border-sky-400 pl-3">
+            मनोरञ्जन
+          </h2>
+          <a href="#" class="text-blue-800 dark:text-sky-400 font-bold">सबै</a>
+        </div>
+        <div id="entertainmentNews" class="grid sm:grid-cols-2 gap-5"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Health -->
+  <section class="max-w-7xl mx-auto px-4 pb-10">
+    <div class="grid grid-cols-1 lg:grid-cols-1 gap-8">
+
+      <div>
+        <div class="flex items-center justify-between mb-5">
+          <h2 class="text-2xl font-black border-l-4 border-blue-800 dark:border-sky-400 pl-3">
+            स्वास्थ्य
+          </h2>
+          <a href="#" class="text-blue-800 dark:text-sky-400 font-bold">सबै</a>
+        </div>
+        <div id="healthNews" class="space-y-5"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <section class="bg-white dark:bg-slate-900 py-12 mb-10">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl md:text-3xl font-black border-l-4 border-blue-800 dark:border-sky-400 pl-3">
+          भिडियो
+        </h2>
+        <a href="#" class="text-blue-800 dark:text-sky-400 font-bold">सबै</a>
+      </div>
+
+      <div id="videoNews" class="grid md:grid-cols-3 gap-6"></div>
+    </div>
+  </section>
+
+  <!-- shorts  -->
+<section class="bg-slate-100 dark:bg-slate-950 py-12 transition-colors">
+
+    <div class="max-w-7xl mx-auto px-4">
+
+        <div class="flex items-center justify-between mb-6">
+
+            <h2 class="text-2xl md:text-3xl font-black text-slate-900 dark:text-white border-l-4 border-blue-800 dark:border-sky-400 pl-3">
+                सर्ट्स
+            </h2>
+
+            <a href="#" class="text-blue-800 dark:text-sky-400 font-bold hover:underline">
+                सबै
+            </a>
+
+        </div>
+
+        <div id="shortsNews" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5"></div>
+
+    </div>
+
+</section>
+
+<!-- photo gallery -->
+ <section class="max-w-7xl mx-auto px-4 pb-12">
+
+    <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl md:text-3xl font-black border-l-4 border-blue-800 dark:border-sky-400 pl-3">
+            फोटो ग्यालरी
+        </h2>
+
+        <a href="#" class="text-blue-800 dark:text-sky-400 font-bold hover:underline">
+            सबै
+        </a>
+    </div>
+
+    <div id="photoGallery" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+
+</section>
+  <!-- Photo Gallery + Shorts -->
+  <!-- <section class="max-w-7xl mx-auto px-4 pb-12">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+      <div class="lg:col-span-2">
+        <div class="flex items-center justify-between mb-5">
+          <h2 class="text-2xl font-black border-l-4 border-blue-800 dark:border-sky-400 pl-3">
+            फोटो ग्यालरी
+          </h2>
+          <a href="#" class="text-blue-800 dark:text-sky-400 font-bold">सबै</a>
+        </div>
+
+        <div id="photoGallery" class="grid sm:grid-cols-2 gap-5"></div>
+      </div>
+
+      <aside>
+        <div class="flex items-center justify-between mb-5">
+          <h2 class="text-2xl font-black border-l-4 border-blue-800 dark:border-sky-400 pl-3">
+            सर्ट्स
+          </h2>
+          <a href="#" class="text-blue-800 dark:text-sky-400 font-bold">सबै</a>
+        </div>
+
+        <div id="shortsNews" class="grid grid-cols-2 gap-4"></div>
+      </aside>
+
+    </div>
+  </section> -->
+
+</main>
+
+<!-- chnages begin from here -->
+
+<!-- <main class="max-w-7xl mx-auto px-4 py-6 grid lg:grid-cols-3 gap-6">
+
+  <section class="lg:col-span-2">
+    <article class="bg-white dark:bg-slate-900 rounded-xl shadow overflow-hidden image-zoom">
+      <div class="overflow-hidden">
+        <img src="https://picsum.photos/900/420?news" class="w-full h-72 object-cover">
+      </div>
+
+      <div class="p-5">
+        <span class="bg-blue-800 text-white px-3 py-1 text-sm rounded">मुख्य समाचार</span>
+
+        <h2 class="text-3xl font-bold mt-4 hover:text-blue-700 cursor-pointer">
+          देशको अर्थतन्त्र सुधारतर्फ, नयाँ नीति सार्वजनिक
+        </h2>
+
+        <p class="text-slate-600 dark:text-slate-300 mt-3">
+          सरकारले आर्थिक सुधारका लागि नयाँ योजना सार्वजनिक गरेको छ।
+        </p>
+      </div>
+    </article>
+
+    <div id="newsGrid" class="grid md:grid-cols-2 gap-5 mt-6"></div>
+  </section>
+
+  <aside class="space-y-6">
+    <div class="bg-white dark:bg-slate-900 rounded-xl shadow p-4">
+      <div class="flex gap-4 border-b border-blue-700 pb-2">
+        <button id="latestTab" class="font-bold text-blue-700 dark:text-sky-400">ताजा</button>
+        <button id="popularTab" class="font-bold">लोकप्रिय</button>
+      </div>
+      <ul id="tabNews" class="mt-4 space-y-3"></ul>
+    </div>
+
+    <div class="bg-blue-800 text-white rounded-xl p-5 shadow">
+      <h3 class="text-xl font-bold">Advertisement</h3>
+      <p class="mt-2 text-sky-100">Your ad banner here</p>
+    </div>
+  </aside>
+
+</main>
+
+<section class="max-w-7xl mx-auto px-4 pb-8">
+  <h2 class="text-2xl font-bold border-l-4 border-blue-700 pl-3 mb-4">अर्थतन्त्र</h2>
+  <div id="businessNews" class="grid md:grid-cols-3 gap-5"></div>
+</section>
+
+<section class="max-w-7xl mx-auto px-4 pb-8">
+  <h2 class="text-2xl font-bold border-l-4 border-blue-700 pl-3 mb-4">खेलकुद</h2>
+  <div id="sportsNews" class="grid md:grid-cols-3 gap-5"></div>
+</section> -->
+
+
+<footer class="mt-16 border-t transition-colors duration-300
+bg-slate-100 text-slate-900 border-slate-300
+dark:bg-gradient-to-b dark:from-blue-950 dark:via-slate-950 dark:to-black dark:text-white dark:border-blue-900">
+
+  <div class="max-w-7xl mx-auto px-6 py-12 text-center border-b border-slate-300 dark:border-slate-800">
+    <h2 class="text-5xl font-black tracking-wide text-blue-800 dark:text-sky-400">
+        ATHAHA HD
+      </h2>
+
+    <p class="mt-3 text-slate-600 dark:text-slate-300 text-lg">
+      स्वतन्त्र • छिटो • भरपर्दो समाचार
+    </p>
+
+    <div class="flex justify-center gap-4 mt-8">
+      <a href="#" class="w-11 h-11 rounded-full border border-slate-300 dark:border-blue-700 bg-white dark:bg-blue-900/40 flex items-center justify-center transition-all duration-300 hover:bg-[#1877F2] hover:text-white hover:-translate-y-1">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+
+      <a href="#" class="w-11 h-11 rounded-full border border-slate-300 dark:border-blue-700 bg-white dark:bg-blue-900/40 flex items-center justify-center transition-all duration-300 hover:bg-[#FF0000] hover:text-white hover:-translate-y-1">
+        <i class="fab fa-youtube"></i>
+      </a>
+
+      <a href="#" class="w-11 h-11 rounded-full border border-slate-300 dark:border-blue-700 bg-white dark:bg-blue-900/40 flex items-center justify-center transition-all duration-300 hover:bg-pink-600 hover:text-white hover:-translate-y-1">
+        <i class="fab fa-instagram"></i>
+      </a>
+
+      <a href="#" class="w-11 h-11 rounded-full border border-slate-300 dark:border-blue-700 bg-white dark:bg-blue-900/40 flex items-center justify-center transition-all duration-300 hover:bg-black hover:text-white hover:-translate-y-1">
+        <i class="fa-brands fa-x-twitter"></i>
+      </a>
+
+      <a href="#" class="w-11 h-11 rounded-full border border-slate-300 dark:border-blue-700 bg-white dark:bg-blue-900/40 flex items-center justify-center transition-all duration-300 hover:bg-gray-800 hover:text-white hover:-translate-y-1">
+        <i class="fab fa-tiktok"></i>
+      </a>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+
+    <div>
+      <h3 class="text-blue-800 dark:text-sky-400 font-bold uppercase tracking-wider mb-5">समाचार</h3>
+      <ul class="space-y-3 text-slate-600 dark:text-slate-300">
+        <li><a href="#" class="hover:text-sky-500 transition">राजनीति</a></li>
+        <li><a href="#" class="hover:text-sky-500 transition">समाज</a></li>
+        <li><a href="#" class="hover:text-sky-500 transition">अर्थ</a></li>
+        <li><a href="#" class="hover:text-sky-500 transition">खेलकुद</a></li>
+        <li><a href="#" class="hover:text-sky-500 transition">मनोरञ्जन</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="text-blue-800 dark:text-sky-400 font-bold uppercase tracking-wider mb-5">Quick Links</h3>
+      <ul class="space-y-3 text-slate-600 dark:text-slate-300">
+        <li><a href="#" class="hover:text-sky-500 transition">हाम्रो बारेमा</a></li>
+        <li><a href="#" class="hover:text-sky-500 transition">सम्पर्क</a></li>
+        <li><a href="#" class="hover:text-sky-500 transition">विज्ञापन</a></li>
+        <li><a href="#" class="hover:text-sky-500 transition">Privacy Policy</a></li>
+        <li><a href="#" class="hover:text-sky-500 transition">Terms & Conditions</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="text-blue-800 dark:text-sky-400 font-bold uppercase tracking-wider mb-5">सम्पर्क</h3>
+      <div class="space-y-4 text-slate-600 dark:text-slate-300">
+        <p><i class="fas fa-map-marker-alt text-blue-800 mr-2"></i>Kathmandu, Nepal</p>
+        <p><i class="fas fa-envelope text-blue-800 mr-2"></i>info@athahahd.com</p>
+        <p><i class="fas fa-phone text-blue-800 mr-2"></i>+977-9800000000</p>
+      </div>
+    </div>
+
+<div>
+  <h3 class="text-blue-800 dark:text-sky-400 font-bold uppercase tracking-wider mb-5">
+    Popular Tags
+  </h3>
+
+  <div class="flex flex-wrap gap-2 mb-8">
+    <a href="#" class="px-3 py-1 rounded-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-sm hover:border-sky-500">राजनीति</a>
+    <a href="#" class="px-3 py-1 rounded-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-sm hover:border-sky-500">खेलकुद</a>
+    <a href="#" class="px-3 py-1 rounded-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-sm hover:border-sky-500">अर्थ</a>
+    <a href="#" class="px-3 py-1 rounded-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-sm hover:border-sky-500">विश्व</a>
+    <a href="#" class="px-3 py-1 rounded-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-sm hover:border-sky-500">मनोरञ्जन</a>
+  </div>
+
+ <div class="mt-6">
+  <h3 class="text-blue-800 dark:text-sky-400 font-bold uppercase tracking-wider mb-3">
+    Newsletter
+  </h3>
+
+  <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">
+    Subscribe to receive the latest news and updates from ATHAHA HD.
+  </p>
+
+  <form id="newsletterForm" class="mt-4">
+    <div class="relative">
+
+        <input
+            type="email"
+            id="newsletterEmail"
+            placeholder="Enter your email"
+            required
+            class="w-full h-12 rounded-full border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 pl-5 pr-14 text-sm focus:outline-none focus:ring-2 focus:ring-blue-700 transition"
+        >
+
+        <!-- <button
+            type="submit"
+            class="absolute right-1 top-1 h-10 w-10 rounded-full bg-blue-800 hover:bg-blue-700 text-white transition">
+
+            <i class="fa-solid fa-paper-plane"></i>
+
+        </button> -->
+       
+        <!-- <button
+    type="submit"
+    class="absolute right-1 top-1 h-10 w-10 rounded-full bg-blue-800 hover:bg-blue-700 text-white transition flex items-center justify-center">
+
+    <i class="fa-solid fa-paper-plane text-sm"></i>
+
+</button> -->
+<button
+    type="submit"
+    class="absolute right-1 top-1 h-10 w-10 rounded-full bg-blue-800 hover:bg-blue-700 text-white transition grid place-items-center">
+
+    <i class="fa-solid fa-paper-plane"></i>
+
+</button>
+
+    </div>
+</form>
+
+<!-- <form id="newsletterForm" class="space-y-3">
+
+    <input
+        type="email"
+        id="newsletterEmail"
+        placeholder="Enter your email"
+        required
+        class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:ring-2 focus:ring-blue-700 focus:outline-none">
+
+    <button
+        class="w-full py-3 rounded-xl bg-gradient-to-r from-blue-700 to-sky-500 text-white font-semibold hover:opacity-90 transition">
+
+        Subscribe →
+
+    </button>
+
+</form> -->
+
+<p id="newsletterMessage" class="hidden mt-2 text-green-500 text-xs font-medium">
+    ✓ Subscribed successfully!
+  </p>
+</div>
+</div>
+
+  </div>
+
+  <div class="border-t border-slate-300 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-600 dark:text-slate-400">
+      <p>© <span id="year"></span> ATHAHA HD. All Rights Reserved.</p>
+      <p>Designed & Developed by <span class="text-blue-800 font-semibold">SANGALO TECH</span></p>
+    </div>
+  </div>
+
+</footer>
+
+
+<script>
+const topStoriesData = [
+  ["संसद बैठक आज बस्दै, महत्वपूर्ण विधेयकमा छलफल", "https://picsum.photos/400/250?top1"],
+  ["काठमाडौंमा ट्राफिक व्यवस्थापन कडा बनाइयो", "https://picsum.photos/400/250?top2"],
+  ["नेपाल क्रिकेट टोलीको शानदार जित", "https://picsum.photos/400/250?top3"],
+  ["नेपाली खेलाडीले अन्तर्राष्ट्रिय स्तरमा राम्रो प्रदर्शन गरेका छन्।","https://picsum.photos/300/180?news3"],
+];
+
+const latestNewsData = [
+  ["सरकारको नयाँ निर्णय सार्वजनिक", "समाचार", "https://picsum.photos/600/360?latest1"],
+  ["देशभर मनसुनी वायुको प्रभाव", "समाज", "https://picsum.photos/600/360?latest2"],
+  ["शेयर बजारमा सामान्य वृद्धि", "अर्थ", "https://picsum.photos/600/360?latest3"],
+  ["विदेशी लगानी बढ्दै गएको तथ्यांक", "अर्थतन्त्र", "https://picsum.photos/600/360?latest4"]
+];
+
+const popularNewsData = [
+  "काठमाडौंमा भारी वर्षाको सम्भावना",
+  "बैंकको ब्याजदर घट्यो",
+  "विश्वकप तयारी तीव्र",
+  "संसदमा आज विशेष छलफल",
+  "सुनको मूल्यमा नयाँ रेकर्ड"
+];
+
+const politicsData = [
+  ["प्रधानमन्त्रीद्वारा नयाँ नीति सार्वजनिक", "https://picsum.photos/500/300?pol1"],
+  ["संसदमा विपक्षी दलको विरोध", "https://picsum.photos/500/300?pol2"],
+  ["नयाँ गठबन्धनबारे छलफल तीव्र", "https://picsum.photos/500/300?pol3"]
+];
+
+const provinceData = [
+  ["मधेश प्रदेशमा विकास योजना सुरु", "https://picsum.photos/500/300?pro1"],
+  ["बागमतीमा नयाँ बजेट कार्यक्रम", "https://picsum.photos/500/300?pro2"],
+  ["गण्डकीमा पर्यटन प्रवर्द्धन अभियान", "https://picsum.photos/500/300?pro3"]
+];
+
+const economyData = [
+  ["बैंकहरूको कर्जा ब्याजदर घट्यो", "https://picsum.photos/500/300?eco1"],
+  ["व्यापार घाटा कम हुँदै", "https://picsum.photos/500/300?eco2"],
+  ["सुनको मूल्यमा नयाँ रेकर्ड", "https://picsum.photos/500/300?eco3"],
+  ["निर्यात व्यापारमा सुधार", "https://picsum.photos/500/300?eco4"]
+];
+
+const sportsDataNew = [
+  ["नेपालले फाइनलमा स्थान बनायो", "https://picsum.photos/500/300?sport1"],
+  ["युवा खेलाडीको उत्कृष्ट प्रदर्शन", "https://picsum.photos/500/300?sport2"]
+];
+
+const entertainmentData = [
+  ["नयाँ चलचित्रले राम्रो व्यापार गर्‍यो", "https://picsum.photos/500/300?ent1"],
+  ["लोकप्रिय कलाकारको नयाँ गीत सार्वजनिक", "https://picsum.photos/500/300?ent2"]
+];
+
+const healthData = [
+  ["डेंगु नियन्त्रणका लागि अभियान सुरु", "https://picsum.photos/500/300?health1"],
+  ["मुटु स्वास्थ्यका लागि चिकित्सकको सुझाव", "https://picsum.photos/500/300?health2"],
+  ["बालबालिकामा मौसमी रोग बढ्दै", "https://picsum.photos/500/300?health3"]
+];
+
+const worldData = [
+  ["विश्व बजारमा तेलको मूल्य घट्यो", "https://picsum.photos/500/300?world1"],
+  ["दक्षिण एसियामा नयाँ कूटनीतिक बहस", "https://picsum.photos/500/300?world2"],
+  ["अन्तर्राष्ट्रिय खेलकुदमा नयाँ कीर्तिमान", "https://picsum.photos/500/300?world3"]
+];
+
+const videoData = [
+  ["आजको मुख्य समाचार भिडियोमा", "https://picsum.photos/700/420?video1"],
+  ["राजनीतिक बहस विशेष कार्यक्रम", "https://picsum.photos/700/420?video2"],
+  ["अर्थतन्त्रबारे विशेषज्ञको विश्लेषण", "https://picsum.photos/700/420?video3"]
+];
+
+const galleryData = [
+  ["काठमाडौंको सुन्दर दृश्य", "https://picsum.photos/700/420?gallery1"],
+  ["वर्षापछिको हरियाली", "https://picsum.photos/700/420?gallery2"],
+  ["खेल मैदानबाट तस्वीरहरू", "https://picsum.photos/700/420?gallery3"],
+  ["सांस्कृतिक कार्यक्रमका झलक", "https://picsum.photos/700/420?gallery4"]
+];
+
+const shortsData = [
+  ["एक मिनेट समाचार", "https://picsum.photos/300/500?short1"],
+  ["आजको भाइरल", "https://picsum.photos/300/500?short2"],
+  ["राजनीतिक टिप्पणी", "https://picsum.photos/300/500?short3"],
+  ["खेल अपडेट", "https://picsum.photos/300/500?short4"],
+  ["मनोरञ्जन अपडेट", "https://picsum.photos/300/500?short5"],
+  ["विश्व समाचार", "https://picsum.photos/300/500?short6"]
+];
+
+function newsCard(title, category, image) {
+  return `
+    <article class="bg-white dark:bg-slate-900 rounded-2xl shadow overflow-hidden hover:shadow-xl transition image-zoom cursor-pointer">
+      <div class="overflow-hidden">
+        <img src="${image}" class="w-full h-52 object-cover" loading="lazy">
+      </div>
+      <div class="p-5">
+        <span class="text-sm text-blue-800 dark:text-sky-400 font-black">${category}</span>
+        <h3 class="text-xl font-black mt-2 leading-snug hover:text-blue-700 dark:hover:text-sky-400">
+          ${title}
+        </h3>
+        <p class="text-slate-600 dark:text-slate-300 mt-2">
+          यो समाचारको छोटो विवरण यहाँ राख्न सकिन्छ।
+        </p>
+      </div>
+    </article>
+  `;
+}
+
+function listCard(title, image) {
+  return `
+    <article class="bg-white dark:bg-slate-900 rounded-2xl shadow overflow-hidden flex gap-4 hover:shadow-xl transition image-zoom cursor-pointer">
+      <div class="w-36 shrink-0 overflow-hidden">
+        <img src="${image}" class="w-full h-full object-cover" loading="lazy">
+      </div>
+      <div class="p-4">
+        <h3 class="font-black text-lg leading-snug hover:text-blue-700 dark:hover:text-sky-400">
+          ${title}
+        </h3>
+        <p class="text-sm text-slate-500 dark:text-slate-400 mt-2">केही समय अघि</p>
+      </div>
+    </article>
+  `;
+}
+
+function videoCard(title, image) {
+  return `
+    <article class="rounded-2xl overflow-hidden shadow bg-slate-50 dark:bg-slate-950 image-zoom cursor-pointer">
+      <div class="relative overflow-hidden">
+        <img src="${image}" class="w-full h-56 object-cover" loading="lazy">
+        <span class="absolute inset-0 flex items-center justify-center">
+          <span class="w-16 h-16 rounded-full bg-blue-800 text-white flex items-center justify-center text-xl shadow-lg">
+            <i class="fa-solid fa-play"></i>
+          </span>
+        </span>
+      </div>
+      <div class="p-5">
+        <h3 class="font-black text-xl leading-snug hover:text-blue-700 dark:hover:text-sky-400">
+          ${title}
+        </h3>
+        <p class="text-blue-800 dark:text-sky-400 text-sm font-bold mt-2">Watch Video</p>
+      </div>
+    </article>
+  `;
+}
+
+function shortCard(title, image) {
+  return `
+    <article class="bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow hover:shadow-xl transition image-zoom cursor-pointer border border-slate-200 dark:border-slate-800">
+
+      <div class="overflow-hidden">
+        <img src="${image}"
+             class="w-full h-72 object-cover"
+             loading="lazy">
+      </div>
+
+      <div class="p-3">
+        <h3 class="font-bold text-sm leading-snug text-slate-900 dark:text-white hover:text-blue-700 dark:hover:text-sky-400">
+          ${title}
+        </h3>
+      </div>
+
+    </article>
+  `;
+}
+
+topStories.innerHTML = topStoriesData.map(item => listCard(item[0], item[1])).join("");
+
+latestNewsGrid.innerHTML = latestNewsData
+  .map(item => newsCard(item[0], item[1], item[2]))
+  .join("");
+
+const nepaliNumbers = ["१","२","३","४","५","६","७","८","९","१०","११","१२","१३","१४","१५"];
+
+popularNewsList.innerHTML = popularNewsData.map((item, index) => `
+  <li class="flex gap-3 border-b border-slate-200 dark:border-slate-700 pb-3 cursor-pointer hover:text-blue-700 dark:hover:text-sky-400">
+    <span class="text-2xl font-black text-blue-800 dark:text-sky-400">
+      ${nepaliNumbers[index] || (index + 1)}
+    </span>
+    <span class="font-bold leading-snug">${item}</span>
+  </li>
+`).join("");
+
+politicsNews.innerHTML = politicsData.map(item => listCard(item[0], item[1])).join("");
+provinceNews.innerHTML = provinceData.map(item => listCard(item[0], item[1])).join("");
+
+economyNews.innerHTML = economyData
+  .map(item => newsCard(item[0], "अर्थतन्त्र", item[1]))
+  .join("");
+
+sportsNewsNew.innerHTML = sportsDataNew
+  .map(item => newsCard(item[0], "खेलकुद", item[1]))
+  .join("");
+
+entertainmentNews.innerHTML = entertainmentData
+  .map(item => newsCard(item[0], "मनोरञ्जन", item[1]))
+  .join("");
+
+healthNews.innerHTML = healthData.map(item => listCard(item[0], item[1])).join("");
+worldNews.innerHTML = worldData.map(item => listCard(item[0], item[1])).join("");
+
+videoNews.innerHTML = videoData.map(item => videoCard(item[0], item[1])).join("");
+
+photoGallery.innerHTML = galleryData
+  .map(item => newsCard(item[0], "फोटो", item[1]))
+  .join("");
+
+shortsNews.innerHTML = shortsData.map(item => shortCard(item[0], item[1])).join("");
+
+const html = document.documentElement;
+const themeBtn = document.getElementById("themeBtn");
+
+// Load saved theme
+if (localStorage.getItem("theme") === "dark") {
+  html.classList.add("dark");
+} else {
+  html.classList.remove("dark");
+}
+
+// Update button icon
+function updateThemeIcon() {
+  themeBtn.innerHTML = html.classList.contains("dark")
+    ? '<i class="fa-solid fa-sun"></i>'
+    : '<i class="fa-solid fa-moon"></i>';
+}
+
+updateThemeIcon();
+
+// Toggle theme
+themeBtn.addEventListener("click", () => {
+  html.classList.toggle("dark");
+
+  localStorage.setItem(
+    "theme",
+    html.classList.contains("dark") ? "dark" : "light"
+  );
+
+  updateThemeIcon();
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const menuBtn = document.getElementById("menuBtn");
+  const sideMenu = document.getElementById("sideMenu");
+  const overlay = document.getElementById("overlay");
+  const closeMenu = document.getElementById("closeMenu");
+
+  if (menuBtn && sideMenu && overlay && closeMenu) {
+    menuBtn.addEventListener("click", function () {
+      sideMenu.classList.remove("-translate-x-full");
+      overlay.classList.remove("hidden");
+    });
+
+    function closeSideMenu() {
+      sideMenu.classList.add("-translate-x-full");
+      overlay.classList.add("hidden");
+    }
+
+    closeMenu.addEventListener("click", closeSideMenu);
+    overlay.addEventListener("click", closeSideMenu);
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        closeSideMenu();
+      }
+    });
+  }
+});
+
+// =============================
+// NEWSLETTER
+// =============================
+
+const newsletterForm = document.getElementById("newsletterForm");
+
+if (newsletterForm) {
+    newsletterForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const emailInput = document.getElementById("newsletterEmail");
+
+        // Basic email validation
+        if (!emailInput.value.trim()) {
+            alert("Please enter your email address.");
+            return;
+        }
+
+        // Success animation
+        const button = newsletterForm.querySelector("button");
+
+        button.innerHTML = '<i class="fa-solid fa-check"></i>';
+        button.classList.remove("bg-blue-800");
+        button.classList.add("bg-green-600");
+
+        setTimeout(() => {
+            button.innerHTML = '<i class="fa-solid fa-paper-plane"></i>';
+            button.classList.remove("bg-green-600");
+            button.classList.add("bg-blue-800");
+
+            emailInput.value = "";
+        }, 2000);
+    });
+}
+
+</script>
+
+<!-- <script>
+const news = [
+  ["संसद बैठक आज बस्दै", "राजनीति", "https://picsum.photos/500/300?1"],
+  ["काठमाडौंमा ट्राफिक व्यवस्थापन कडा", "समाचार", "https://picsum.photos/500/300?2"],
+  ["नेपाल क्रिकेट टोलीको शानदार जित", "खेलकुद", "https://picsum.photos/500/300?3"],
+  ["नयाँ चलचित्रले राम्रो व्यापार गर्‍यो", "मनोरञ्जन", "https://picsum.photos/500/300?4"]
+];
+
+const latest = [
+  "देशभर मनसुनी वायुको प्रभाव",
+  "शेयर बजारमा सामान्य वृद्धि",
+  "सरकारले नयाँ योजना ल्यायो",
+  "विदेशी लगानी बढ्दै"
+];
+
+const popular = [
+  "काठमाडौंमा भारी वर्षा",
+  "बैंकको ब्याजदर घट्यो",
+  "विश्वकप तयारी तीव्र",
+  "संसदमा आज विशेष छलफल"
+];
+
+const business = [
+  "बैंकहरूको कर्जा ब्याजदर घट्यो",
+  "व्यापार घाटा कम हुँदै",
+  "सुनको मूल्यमा नयाँ रेकर्ड"
+];
+
+const sports = [
+  "नेपालले फाइनलमा स्थान बनायो",
+  "युवा खेलाडीको उत्कृष्ट प्रदर्शन",
+  "क्रिकेट रंगशाला निर्माण तीव्र"
+];
+
+function card(title, category, image) {
+  return `
+    <article class="bg-white dark:bg-slate-900 rounded-xl shadow overflow-hidden hover:shadow-xl transition image-zoom cursor-pointer">
+      <div class="overflow-hidden">
+        <img src="${image}" class="w-full h-48 object-cover">
+      </div>
+
+      <div class="p-4">
+        <span class="text-sm text-blue-700 dark:text-sky-400 font-bold">
+          ${category}
+        </span>
+
+        <h3 class="text-xl font-bold mt-2 hover:text-blue-700">
+          ${title}
+        </h3>
+
+        <p class="text-slate-600 dark:text-slate-300 mt-2">
+          यो समाचारको छोटो विवरण यहाँ राख्न सकिन्छ।
+        </p>
+      </div>
+    </article>
+  `;
+}
+
+// Load Cards
+newsGrid.innerHTML = news.map(n => card(n[0], n[1], n[2])).join("");
+
+businessNews.innerHTML = business
+  .map((n, i) => card(n, "अर्थतन्त्र", `https://picsum.photos/500/300?b=${i}`))
+  .join("");
+
+sportsNews.innerHTML = sports
+  .map((n, i) => card(n, "खेलकुद", `https://picsum.photos/500/300?s=${i}`))
+  .join("");
+
+// Latest & Popular Tabs
+function renderTab(items) {
+  tabNews.innerHTML = items.map(item => `
+    <li class="border-b dark:border-slate-700 pb-2 hover:text-blue-700 cursor-pointer">
+      ${item}
+    </li>
+  `).join("");
+}
+
+renderTab(latest);
+
+latestTab.onclick = () => {
+  latestTab.classList.add("text-blue-700","dark:text-sky-400");
+  popularTab.classList.remove("text-blue-700","dark:text-sky-400");
+  renderTab(latest);
+};
+
+popularTab.onclick = () => {
+  popularTab.classList.add("text-blue-700","dark:text-sky-400");
+  latestTab.classList.remove("text-blue-700","dark:text-sky-400");
+  renderTab(popular);
+};
+
+// =============================
+// DARK MODE
+// =============================
+
+const html = document.documentElement;
+const themeBtn = document.getElementById("themeBtn");
+
+// Load saved theme
+if (localStorage.getItem("theme") === "dark") {
+  html.classList.add("dark");
+}
+
+// Update button icon
+function updateThemeIcon() {
+  themeBtn.innerHTML = html.classList.contains("dark")
+    ? '<i class="fa-solid fa-moon"></i>'
+    : '<i class="fa-solid fa-sun"></i>';
+}
+
+updateThemeIcon();
+
+// Toggle theme
+themeBtn.addEventListener("click", () => {
+  html.classList.toggle("dark");
+
+  if (html.classList.contains("dark")) {
+    localStorage.setItem("theme", "dark");
+  } else {
+    localStorage.setItem("theme", "light");
+  }
+
+  updateThemeIcon();
+});
+
+// =============================
+// SIDE MENU
+// =============================
+
+menuBtn.onclick = () => {
+  sideMenu.classList.remove("-translate-x-full");
+  overlay.classList.remove("hidden");
+};
+
+function closeSideMenu() {
+  sideMenu.classList.add("-translate-x-full");
+  overlay.classList.add("hidden");
+}
+
+closeMenu.onclick = closeSideMenu;
+overlay.onclick = closeSideMenu;
+
+// ESC Key
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") {
+    closeSideMenu();
+  }
+});
+
+// =============================
+// DATE & TIME
+// =============================
+
+function updateDateTime() {
+
+  const now = new Date();
+
+  const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit"
+  };
+
+  document.getElementById("dateTime").textContent =
+    now.toLocaleString("ne-NP", options);
+
+}
+
+updateDateTime();
+setInterval(updateDateTime, 60000);
+
+// Hide header while scrolling
+
+const topHeader = document.getElementById("topHeader");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 80) {
+    topHeader.classList.add("hide-header");
+  } else {
+    topHeader.classList.remove("hide-header");
+  }
+});
+
+
+// footer
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+document.getElementById("newsletterForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    alert("Thank you for subscribing!");
+});
+</script> -->
+
+</body>
+</html>
